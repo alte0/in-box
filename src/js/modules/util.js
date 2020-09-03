@@ -50,6 +50,53 @@ const toUpperCaseFirstSymbolInWords = (str) => {
 
   return firstSymbol + otherSymbol;
 };
+/**
+ * Очищает в localStorage классы связанные с таблицей.
+ * @return void
+ */
+const clearLocalStorageClassesTable = () => {
+  for (const key in localStorage) {
+    if (!localStorage.hasOwnProperty(key)) {
+      continue;
+    }
+
+    const str = localStorage.getItem(key);
+
+    if (str.indexOf('table', 0) !== -1) {
+      localStorage.removeItem(key);
+    }
+  }
+};
+/**
+ * Записывает значение и класс в localStorage для таблицы
+ * @param {String} str
+ * @param {String} addClass
+ * @return void
+ */
+const setItemLocalStorage = (str, addClass) => {
+  localStorage.setItem(str, addClass);
+};
+/**
+ * Получаем классы для таблицы из localStorage
+ * @return {String}
+ */
+const getClassesForTable = () => {
+  let classesTable = '';
+
+  for (const key in localStorage) {
+    if (!localStorage.hasOwnProperty(key)) {
+      continue;
+    }
+
+    const str = localStorage.getItem(key);
+
+    if (str.indexOf('table', 0) !== -1) {
+      classesTable += ' ' + str;
+    }
+  }
+
+  return classesTable;
+};
 
 export {
   createElement,
@@ -57,5 +104,8 @@ export {
   renderTemplate,
   setBlockElem,
   setUnBlockElem,
-  toUpperCaseFirstSymbolInWords
+  toUpperCaseFirstSymbolInWords,
+  setItemLocalStorage,
+  clearLocalStorageClassesTable,
+  getClassesForTable
 };

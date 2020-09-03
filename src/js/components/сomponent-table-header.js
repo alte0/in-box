@@ -1,5 +1,9 @@
 import Component from './сomponent';
-import { setBlockElem, setUnBlockElem } from '../modules/util';
+import {
+  setBlockElem,
+  setUnBlockElem,
+  getClassesForTable
+} from '../modules/util';
 
 export default class ComponentTable extends Component {
   constructor () {
@@ -14,7 +18,7 @@ export default class ComponentTable extends Component {
     return `
         <header class="main__header">
           <h1 class="main__title title">Pantone colors</h1>
-          <button type="button" class="btn btn__reset" disabled="">Reset</button>
+          <button type="button" class="btn btn__reset" ${getClassesForTable() ? '' : 'disabled=""'}>Reset</button>
         </header>
     `.trim();
   }

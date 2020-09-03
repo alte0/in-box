@@ -1,5 +1,10 @@
 import Component from './сomponent';
-import { toUpperCaseFirstSymbolInWords } from '../modules/util';
+import {
+  toUpperCaseFirstSymbolInWords,
+  setItemLocalStorage,
+  clearLocalStorageClassesTable,
+  getClassesForTable
+} from '../modules/util';
 
 export default class ComponentTable extends Component {
   constructor (data) {
@@ -14,7 +19,7 @@ export default class ComponentTable extends Component {
 
   get template () {
     return `
-        <table class="table">
+        <table class="table${getClassesForTable()}">
           <caption class="table__caption visually-hidden">Variables Pantone colors</caption>
           <tbody class="table__tbody">
             <tr class="table__tr">
@@ -59,10 +64,13 @@ export default class ComponentTable extends Component {
 
   showTable = () => {
     this._element.setAttribute('class', 'table');
+
+    clearLocalStorageClassesTable();
   }
 
   _addClassHiddenColumn (str) {
     const addClass = `table--${str}-hidden`;
+    setItemLocalStorage(str, addClass);
 
     if (!this._element.matches(addClass)) {
       this._element.classList.add(addClass);

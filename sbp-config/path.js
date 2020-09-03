@@ -32,7 +32,7 @@ module.exports = {
   watch: {
     html: 'src/html/**/*.html',
     dataJson: 'src/data-json/',
-    js: ['src/js/main.js', 'src/js/components/**/*.js'],
+    js: ['src/js/main.js', 'src/js/modules/**/*.js', 'src/js/components/**/*.js'],
     css: 'src/scss/**/*.scss',
     sprites: 'src/sprites-png/*.png',
     spritesSvg: 'src/sprites-svg/*.svg',
