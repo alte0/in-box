@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+// Все картинки и шрифты необходимо подключать с использованием этих двух переменных:
+$imagesPath: "../images/" !default;
+$iPath: "../i/" !default;
+$fontsPath: "../fonts/" !default;
+
+$minify: false !default;
+@if $minify {
+  $imagesPath: "./images/";
+  $iPath: "./i/";
+  $fontsPath: "./fonts/";
+}
+
+@import "../../node_modules/normalize.css/normalize";
+@import "variables";
+@import "fonts";
+@import "common";
+@import "sprite/sprite.scss";
+@import "sprite/spriteSvg.scss";
+@import "blocks/**/*";
+// @import "../../node_modules/slick-carousel/slick/slick.scss";
+
+// .example-sprite {
+//   display: inline-block;
+//   border: 5px solid green;
+//   margin-right: 10px;
+//   margin-bottom: 10px;
+//   &-1 {
+//     // @include sprite($example-1);
+//     @include retina-sprite($example-1-group);
+//   }
+//   &-2 {
+//     // @include sprite($example-2);
+//     @include retina-sprite($example-2-group);
+//   }
+// }
+// #cloud path {
+//   fill: red;
+// }
+
+//body {
+//    background-color: green;
+//}
+

@@ -1,0 +1,49 @@
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+
+  &__reset {
+    color: $btnActive;
+    padding-left: 25px;
+    padding-right: 8px;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      @include sprite($icon-reset-active);
+    }
+
+    &:disabled {
+      color: $btnDisabled;
+      cursor: no-drop;
+
+      &:before {
+        @include sprite($icon-reset-disabled);
+      }
+    }
+  }
+
+  &__hidden-column {
+    font-size: 12px;
+    padding-left: 17px;
+    position: relative;
+    text-transform: uppercase;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      @include sprite($icon-checkbox);
+    }
+  }
+}

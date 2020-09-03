@@ -1,0 +1,27 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "corejs": "3.6",
+        "useBuiltIns": "usage",
+        "targets": {
+          "android": "78",
+          "chrome": "78",
+          "edge": "17",
+          "firefox": "68",
+          "ie": "11",
+          "ios": "12.2",
+          "opera": "63",
+          "safari": "11.1",
+          "samsung": "8.2"
+        },
+        "ignoreBrowserslistConfig": true
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-syntax-class-properties"],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  ]
+}
